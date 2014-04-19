@@ -26,16 +26,20 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected static final int RESULT_SPEECH = 1;
 
 
+
     Button buttonSpeak;
 
-    TextView txt, txt1, txt2, txt3;
+
+    TextView txt1, txt2, txt3;
     EditText ed1, ed2, ed3;
     TextToSpeech tts;
     int i = 0;
+    int counter=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         txt1 = (TextView) findViewById(R.id.name);
         txt2 = (TextView) findViewById(R.id.country);
         txt2 = (TextView) findViewById(R.id.city);
@@ -46,41 +50,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
         tts = new TextToSpeech(this, this);
 
-        buttonSpeak = (Button) findViewById(R.id.button);
+        buttonSpeak = (Button)findViewById(R.id.button);
 
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                speakTheText();
+                speakTheText(counter);
 
-<<<<<<< HEAD
-=======
-                i = 0;
-                if (i == 0) {
-
-                    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                    try {
-                        startActivityForResult(intent, RESULT_SPEECH);
-                        ed1.setText("");
-                    } catch (ActivityNotFoundException e) {
-                        Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
-                        t.show();
-
-                    }
-                }
-
->>>>>>> FETCH_HEAD
 
             }
         });
     }
-
-
-
-
-
 
     @Override
     public void onInit(int status) {
@@ -92,7 +73,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
-                speakTheText();
+
             }
 
         } else {
@@ -100,8 +81,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         }
 
     }
-
-
         @Override
         public void onDestroy()
         {
@@ -117,6 +96,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
@@ -125,12 +105,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
                 break;
             }
+
         }
+        counter++;
+            if (counter < 5)
+                speakTheText(counter);
+
     }
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -138,22 +119,16 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
-    private void speakTheText() {
-<<<<<<< HEAD
-
+    private void speakTheText(int count) {
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
-        for (int counter = 0; counter < 5; counter++) {
 
 
-=======
-        String[] textToSpeak = getResources().getStringArray(R.array.questions);
-        for (int counter = 0; counter < 5; counter++) {
 
->>>>>>> FETCH_HEAD
 
-            tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
 
-            while (tts.isSpeaking() == true) ;
+        tts.speak(textToSpeak[count], TextToSpeech.QUEUE_FLUSH, null);
+
+            while(tts.isSpeaking()==true);
 
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
@@ -161,12 +136,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 startActivityForResult(intent, RESULT_SPEECH);
                 ed1.setText("");
             } catch (ActivityNotFoundException e) {
-                Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
                 t.show();
 
-            }
+
 
         }
+
+
     }
 
     @Override
