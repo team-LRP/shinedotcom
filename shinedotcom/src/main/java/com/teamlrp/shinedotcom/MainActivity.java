@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +19,9 @@ import java.util.ArrayList;
 public class MainActivity extends Activity {
     protected static final int RESULT_SPEECH = 1;
 
-    TextView txt;
+    TextView txt, txt1 , txt2, txt3 ;
+    EditText ed1 , ed2 , ed3 ;
+
     Button btn;
 
     @Override
@@ -27,6 +30,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         txt= (TextView)findViewById(R.id.textView);
+        txt1= (TextView)findViewById(R.id.name);
+        txt2= (TextView)findViewById(R.id.location);
+        txt3= (TextView)findViewById(R.id.gender);
+        ed1= (EditText)findViewById(R.id.editname);
+        ed2= (EditText)findViewById(R.id.editlocation);
+        ed3= (EditText)findViewById(R.id.editgender);
+
         btn = (Button)findViewById(R.id.button);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
