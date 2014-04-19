@@ -53,24 +53,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 // TODO Auto-generated method stub
                 speakTheText();
 
-<<<<<<< HEAD
-=======
-                i = 0;
-                if (i == 0) {
-
-                    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                    try {
-                        startActivityForResult(intent, RESULT_SPEECH);
-                        ed1.setText("");
-                    } catch (ActivityNotFoundException e) {
-                        Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
-                        t.show();
-
-                    }
-                }
->>>>>>> FETCH_HEAD
-
 
             }
         });
@@ -131,15 +113,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     private void speakTheText() {
-<<<<<<< HEAD
+
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
         for (int counter = 0; counter < 5; counter++) {
 
-=======
-        String textToSpeak = "Please enter your Name ";
-        tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
-    }
->>>>>>> FETCH_HEAD
+
 
             tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
 
