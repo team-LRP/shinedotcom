@@ -10,7 +10,6 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -42,7 +41,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     int counter=0;
 
 
-    Button b2;
+    
+
     private static final String AUDIO_RECORDER_FILE_EXT_3GP = ".3gp";
     private static final String AUDIO_RECORDER_FILE_EXT_MP4 = ".mp4";
     private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
@@ -62,10 +62,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
-<<<<<<< HEAD
 
-=======
->>>>>>> f4575aa199de36e8ddd78804e393b73953e42322
         ed2 = (EditText)findViewById(R.id.editcountry);
 
         ed3 = (EditText) findViewById(R.id.editcity);
@@ -78,31 +75,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
         buttonSpeak = (Button)findViewById(R.id.button);
 
-        b2=(Button)findViewById(R.id.button2);
-        b2.setOnTouchListener(new View.OnTouchListener() {
 
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                // TODO Auto-generated method stub
-                switch(event.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        AppLog.logString("Start Recording");
-                        startRecording();
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        AppLog.logString("stop Recording");
-                        stopRecording();
-                        break;
-                }
-                return false;
-            }
-        });
 
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
 
+                startRecording();
                 speakTheText(counter);
              }
 
@@ -210,17 +190,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-<<<<<<< HEAD
 
 
-        EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
-
-
-=======
 
         EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
 
->>>>>>> f4575aa199de36e8ddd78804e393b73953e42322
+
+
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
@@ -236,6 +212,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
         {
             Toast.makeText(this, "application band", Toast.LENGTH_SHORT).show();
+            stopRecording();
         }
         else{
 
@@ -246,6 +223,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             {
                 Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
 
+                stopRecording();
             }
 
     }
