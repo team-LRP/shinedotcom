@@ -26,19 +26,24 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected static final int RESULT_SPEECH = 1;
 
 
+
     Button buttonSpeak;
 
-    TextView txt, txt1, txt2, txt3;
+
+    TextView txt1, txt2, txt3;
     EditText ed1, ed2, ed3;
     TextToSpeech tts;
     int i = 0;
+    int counter=0;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         txt1 = (TextView) findViewById(R.id.name);
-        txt2 = (TextView) findViewById(R.id.location);
+        txt2 = (TextView) findViewById(R.id.country);
+        txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
         ed2 = (EditText) findViewById(R.id.editlocation);
@@ -46,25 +51,25 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
         tts = new TextToSpeech(this, this);
 
-        buttonSpeak = (Button) findViewById(R.id.button);
+        buttonSpeak = (Button)findViewById(R.id.button);
 
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+<<<<<<< HEAD
 
 
 
                 }
+=======
+                // TODO Auto-generated method stub
+                speakTheText(counter);
+>>>>>>> 90e1bfc5b534504a8f0d4b512ab3b8241142f7f2
 
 
 
         });
     }
-
-
-
-
-
 
     @Override
     public void onInit(int status) {
@@ -84,8 +89,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         }
 
     }
-
-
         @Override
         public void onDestroy()
         {
@@ -101,6 +104,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
@@ -109,19 +113,44 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
                 break;
             }
-        }
 
+        }
+<<<<<<< HEAD
+=======
+        counter++;
+            if (counter < 5)
+                speakTheText(counter);
+
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+>>>>>>> 90e1bfc5b534504a8f0d4b512ab3b8241142f7f2
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+    private void speakTheText(int count) {
+        String[] textToSpeak = getResources().getStringArray(R.array.questions);
 
         }
 
     private void speakTheText(int counter) {
 
 
+<<<<<<< HEAD
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
+=======
+>>>>>>> 90e1bfc5b534504a8f0d4b512ab3b8241142f7f2
 
-            tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
+        tts.speak(textToSpeak[count], TextToSpeech.QUEUE_FLUSH, null);
 
+<<<<<<< HEAD
             while (tts.isSpeaking() == true);
+=======
+            while(tts.isSpeaking()==true);
+
+>>>>>>> 90e1bfc5b534504a8f0d4b512ab3b8241142f7f2
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
             try {
@@ -130,15 +159,20 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             } catch (ActivityNotFoundException e) {
                 Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
                 t.show();
+<<<<<<< HEAD
             }
 
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+=======
 
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
+
+
+        }
+>>>>>>> 90e1bfc5b534504a8f0d4b512ab3b8241142f7f2
+
+
     }
 
     @Override
