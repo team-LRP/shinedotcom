@@ -16,6 +16,7 @@ import java.util.Locale;
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 
+<<<<<<< HEAD
         EditText txt;
         Button buttonSpeak;
 
@@ -39,6 +40,39 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     // TODO Auto-generated method stub
                     speakTheText();
 
+=======
+    TextView txt, txt1 , txt2, txt3 ;
+    EditText ed1 , ed2 , ed3 ;
+
+    Button btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        txt= (TextView)findViewById(R.id.textView);
+        txt1= (TextView)findViewById(R.id.name);
+        txt2= (TextView)findViewById(R.id.location);
+        txt3= (TextView)findViewById(R.id.gender);
+        ed1= (EditText)findViewById(R.id.editname);
+        ed2= (EditText)findViewById(R.id.editlocation);
+        ed3= (EditText)findViewById(R.id.editgender);
+
+        btn = (Button)findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+                try {
+                    startActivityForResult(intent, RESULT_SPEECH);
+                    txt.setText("");
+                }
+                catch (ActivityNotFoundException e) {
+                    Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
+                    t.show();
+>>>>>>> FETCH_HEAD
                 }
             });
         }
