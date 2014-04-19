@@ -20,14 +20,6 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class MainActivity extends Activity{
-
-    
-=======
-import java.util.ArrayList;
-import java.util.Locale;
-
-
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 
 
@@ -41,19 +33,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
 
-
->>>>>>> 902a2807e650e12c847a5b56b0b51838e68ac7ab
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-<<<<<<< HEAD
-
-
-        }
-=======
-
-
         txt1 = (TextView) findViewById(R.id.name);
         txt2 = (TextView) findViewById(R.id.location);
         txt3 = (TextView) findViewById(R.id.gender);
@@ -71,38 +53,53 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 // TODO Auto-generated method stub
                 speakTheText();
 
+<<<<<<< HEAD
+=======
+                i = 0;
+                if (i == 0) {
+
+                    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+                    try {
+                        startActivityForResult(intent, RESULT_SPEECH);
+                        ed1.setText("");
+                    } catch (ActivityNotFoundException e) {
+                        Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
+                        t.show();
+
+                    }
+                }
+>>>>>>> FETCH_HEAD
 
 
             }
         });
     }
->>>>>>> 902a2807e650e12c847a5b56b0b51838e68ac7ab
 
 
-                @Override
-                public boolean onCreateOptionsMenu (Menu menu){
-
-<<<<<<< HEAD
-                    // Inflate the menu; this adds items to the action bar if it is present.
-                    getMenuInflater().inflate(R.menu.main, menu);
-                    return true;
-                }
-
-                @Override
-                public boolean onOptionsItemSelected (MenuItem item){
-                    // Handle action bar item clicks here. The action bar will
-                    // automatically handle clicks on the Home/Up button, so long
-                    // as you specify a parent activity in AndroidManifest.xml.
-                    int id = item.getItemId();
-                    if (id == R.id.action_settings) {
-                        return true;
-                    }
-                    return super.onOptionsItemSelected(item);
-                }
 
 
+
+
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+
+            int result = tts.setLanguage(Locale.ENGLISH);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
+                speakTheText();
             }
-=======
+
+        } else {
+            Toast.makeText(this, "Can Not Speak", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
 
         @Override
         public void onDestroy()
@@ -130,30 +127,19 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         }
     }
 
-    public void onInit(int status) {
 
-        if (status == TextToSpeech.SUCCESS) {
-
-            int result = tts.setLanguage(Locale.ENGLISH);
-
-            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
-                Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
-                speakTheText();
-            }
-
-        } else {
-            Toast.makeText(this, "Can Not Speak", Toast.LENGTH_LONG).show();
-        }
-
-    }
 
 
     private void speakTheText() {
+<<<<<<< HEAD
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
         for (int counter = 0; counter < 5; counter++) {
 
+=======
+        String textToSpeak = "Please enter your Name ";
+        tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
+    }
+>>>>>>> FETCH_HEAD
 
             tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
 
@@ -193,7 +179,5 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
 
-        }
+     }
 
-
->>>>>>> 902a2807e650e12c847a5b56b0b51838e68ac7ab
