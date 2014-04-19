@@ -10,7 +10,10 @@
         <item>Enter your country?</item>
         <item>Enter your city?</item>
         <item>Enter Gender</item>
-        <item>Are you Experienced (Yes or No)?</item>
+        <item>Years of experience ?</item>
+        <item>what is job title?</item>
+        <item>please tell name of company?</item>
+
 
     </string-array>
 

@@ -239,7 +239,7 @@
             android:layout_below="@+id/country"
             android:layout_toRightOf="@+id/textView2" />
 
-        <Button
+        Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="start"
@@ -249,7 +249,24 @@
             android:layout_alignStart="@+id/button"
             android:layout_marginBottom="57dp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="start"
+            android:id="@+id/button3"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="128dp" />
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="stop"
+            android:id="@+id/button4"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/button3"
+            android:layout_alignStart="@+id/button3"
+            android:layout_marginBottom="49dp" />
     </RelativeLayout>
 
 </ScrollView>
