@@ -8,12 +8,17 @@
         <option name="modules">
           <set>
 <<<<<<< HEAD
+            <option value="C:\Users\laavanye bahl\Desktop\GitHub\shinedotcom" />
+            <option value="C:\Users\laavanye bahl\Desktop\GitHub\shinedotcom\shinedotcom" />
+=======
+<<<<<<< HEAD
             <option value="C:\Users\Puja\Documents\GitHub\shinedotcom" />
             <option value="C:\Users\Puja\Documents\GitHub\shinedotcom\shinedotcom" />
 =======
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/shinedotcom" />
 >>>>>>> dbdc5c3c85f7a896619a43166f87a333fc242f96
+>>>>>>> f94a43ef25a8f1f031986da868ac95a8231c8ea6
           </set>
         </option>
       </GradleProjectSettings>

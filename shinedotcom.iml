@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<module external.linked.project.path="C:\Users\laavanye bahl\Desktop\GitHub\shinedotcom" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
+=======
+<<<<<<< HEAD
 <module external.linked.project.path="C:\Users\Puja\Documents\GitHub\shinedotcom" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
 =======
 <module external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
 >>>>>>> dbdc5c3c85f7a896619a43166f87a333fc242f96
+>>>>>>> f94a43ef25a8f1f031986da868ac95a8231c8ea6
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
