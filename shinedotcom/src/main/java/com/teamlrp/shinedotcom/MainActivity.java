@@ -14,15 +14,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-<<<<<<< HEAD
+
 import java.util.ArrayList;
-=======
->>>>>>> 41e17b0f996659df107e87d433b6fe065ce52806
+
 import java.util.Locale;
 
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
-<<<<<<< HEAD
+
     protected static final int RESULT_SPEECH = 1;
 
     TextView txt;
@@ -55,11 +54,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     }
 
 
-=======
-
-        protected static final int RESULT_SPEECH = 1;
-
-
 
         Button buttonSpeak;
 
@@ -67,49 +61,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         EditText ed1 , ed2 , ed3 ;
         TextToSpeech tts ;
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState)
-        {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
 
-            tts = new TextToSpeech(this, this);
-
-            buttonSpeak =(Button)findViewById(R.id.button);
-
-
-            buttonSpeak.setOnClickListener(new View.OnClickListener() {
-
-                public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                    speakTheText();
-                    if (tts.isSpeaking() == false) {
-
-                        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                        try {
-                            startActivityForResult(intent, RESULT_SPEECH);
-                            txt.setText("");
-                        } catch (ActivityNotFoundException e) {
-                            Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
-                            t.show();
-
-                        }
-
-
-                    }
-                
-
-        txt1= (TextView)findViewById(R.id.name);
-        txt2= (TextView)findViewById(R.id.location);
-        txt3= (TextView)findViewById(R.id.gender);
-        ed1= (EditText)findViewById(R.id.editname);
-        ed2= (EditText)findViewById(R.id.editlocation);
-        ed3= (EditText)findViewById(R.id.editgender);
-
-                }
-            });
-        }
 
 
 
@@ -122,12 +74,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             {
                 tts.stop();
                 tts.shutdown();
->>>>>>> 41e17b0f996659df107e87d433b6fe065ce52806
+
             }
             super.onDestroy();
         }
 
-<<<<<<< HEAD
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -141,7 +93,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
         }
 
-=======
+
     public void onInit(int status)
     {
 
@@ -166,8 +118,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             Toast.makeText(this, "Can Not Speak", Toast.LENGTH_LONG).show();
         }
 
-    }
->>>>>>> 41e17b0f996659df107e87d433b6fe065ce52806
 
     private void speakTheText() {
         String textToSpeak = "Please enter your Name ";
