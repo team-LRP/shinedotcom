@@ -36,24 +36,24 @@
         android:layout_height="wrap_content"
         android:id="@+id/editname"
         android:layout_above="@+id/country"
-        android:layout_alignLeft="@+id/editlocation"
-        android:layout_alignStart="@+id/editlocation" />
+        android:layout_alignLeft="@+id/editcity"
+        android:layout_alignStart="@+id/editcity" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editlocation"
-        android:layout_below="@+id/textView2"
-        android:layout_alignRight="@+id/textView2"
-        android:layout_alignEnd="@+id/textView2" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editgender"
+        android:id="@+id/editcity"
         android:layout_alignTop="@+id/country"
-        android:layout_alignLeft="@+id/editlocation"
-        android:layout_alignStart="@+id/editlocation" />
+        android:layout_alignRight="@+id/workex"
+        android:layout_alignEnd="@+id/workex" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editcountry"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/editname"
+        android:layout_alignStart="@+id/editname" />
 
     <Button
         android:layout_width="wrap_content"
@@ -234,8 +234,15 @@
         android:layout_alignLeft="@+id/editjobtitle"
         android:layout_alignStart="@+id/editjobtitle" />
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editgender"
+            android:layout_below="@+id/editcountry"
+            android:layout_alignLeft="@+id/editcity"
+            android:layout_alignStart="@+id/editcity" />
 
 
-</RelativeLayout>
+    </RelativeLayout>
 
 </ScrollView>
