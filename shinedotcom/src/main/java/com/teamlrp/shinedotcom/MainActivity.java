@@ -27,7 +27,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
     protected static final int RESULT_SPEECH = 1;
 
-    
+
 
 
     Button buttonSpeak;
