@@ -80,7 +80,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 {
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
+
                     }
+
                      else {
                     Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
 
@@ -109,6 +111,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             super.onDestroy();
         }
 
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -117,7 +120,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
+                    
                 }
                 break;
             }
