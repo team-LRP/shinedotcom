@@ -18,55 +18,27 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Name"
-        android:id="@+id/name"
-        android:layout_below="@+id/textView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="location"
-        android:id="@+id/location"
-        android:layout_below="@+id/name"
-        android:layout_alignLeft="@+id/name"
-        android:layout_alignStart="@+id/name" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Gender"
-        android:id="@+id/gender"
-        android:layout_below="@+id/location"
-        android:layout_alignLeft="@+id/location"
-        android:layout_alignStart="@+id/location" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editname"
-        android:layout_above="@+id/editgender"
+        android:layout_above="@+id/country"
+        android:layout_alignLeft="@+id/editlocation"
+        android:layout_alignStart="@+id/editlocation" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editlocation"
+        android:layout_below="@+id/textView2"
         android:layout_alignRight="@+id/textView2"
         android:layout_alignEnd="@+id/textView2" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editlocation"
-        android:layout_alignBottom="@+id/location"
-        android:layout_alignLeft="@+id/editname"
-        android:layout_alignStart="@+id/editname" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/editgender"
-        android:layout_alignBottom="@+id/gender"
+        android:layout_alignTop="@+id/country"
         android:layout_alignLeft="@+id/editlocation"
         android:layout_alignStart="@+id/editlocation" />
 
@@ -87,5 +59,74 @@
         android:layout_below="@+id/gender"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Gender"
+        android:id="@+id/gender"
+        android:layout_below="@+id/city"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Country"
+        android:id="@+id/country"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Name"
+        android:id="@+id/name"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="City"
+        android:id="@+id/city"
+        android:layout_below="@+id/country"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Are you ?"
+        android:id="@+id/areyou"
+        android:layout_below="@+id/workex"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fresher"
+        android:id="@+id/radioButton"
+        android:checked="false"
+        android:layout_below="@+id/workex"
+        android:layout_alignRight="@+id/workex"
+        android:layout_alignEnd="@+id/workex" />
+
+    <RadioButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Experienced"
+        android:id="@+id/radioButton2"
+        android:layout_below="@+id/workex"
+        android:layout_toRightOf="@+id/radioButton"
+        android:checked="false" />
 
 </RelativeLayout>
