@@ -3,7 +3,9 @@ package com.teamlrp.shinedotcom;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.media.MediaRecorder;
 import android.os.Bundle;
+import android.os.Environment;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.Menu;
@@ -14,9 +16,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
-
 import java.util.Locale;
 
 
@@ -28,15 +30,27 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     Button buttonSpeak;
+    String stp = "stop'\0' ";
 
 
     TextView txt1, txt2, txt3;
-    EditText ed1, ed2, ed3,ed4,ed5,ed6 ;
+    EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7 ;
 
     TextToSpeech tts;
     int i = 0;
     int counter=0;
     EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6} ;
+
+
+    
+
+    private static final String AUDIO_RECORDER_FILE_EXT_3GP = ".3gp";
+    private static final String AUDIO_RECORDER_FILE_EXT_MP4 = ".mp4";
+    private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
+    private MediaRecorder recorder = null;
+    private int currentFormat = 0;
+    private int output_formats[] = { MediaRecorder.OutputFormat.MPEG_4,             MediaRecorder.OutputFormat.THREE_GPP };
+    private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP4, AUDIO_RECORDER_FILE_EXT_3GP };
 
 
 
@@ -49,27 +63,87 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
-        ed2 = (EditText) findViewById(R.id.editlocation);
-        ed3 = (EditText) findViewById(R.id.editgender);
-        ed4 = (EditText) findViewById(R.id.edityears);
-        ed5 = (EditText) findViewById(R.id.editjobtitle);
-        ed6 = (EditText) findViewById(R.id.editcompany);
+
+        ed2 = (EditText)findViewById(R.id.editcountry);
+
+        ed3 = (EditText) findViewById(R.id.editcity);
+        ed4 = (EditText) findViewById(R.id.editgender);
+        ed5 = (EditText) findViewById(R.id.edityears);
+        ed6 = (EditText) findViewById(R.id.editjobtitle);
+        ed7 = (EditText) findViewById(R.id.editcompany);
 
         tts = new TextToSpeech(this, this);
 
         buttonSpeak = (Button)findViewById(R.id.button);
 
+
+
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
+
+                startRecording();
                 speakTheText(counter);
+             }
 
 
-
-        }
+          
     });
     }
+
+
+    private String getFilename(){
+        String filepath = Environment.getExternalStorageDirectory().getPath();
+        File file = new File(filepath,AUDIO_RECORDER_FOLDER);
+
+        if(!file.exists()){
+            file.mkdirs();
+        }
+
+        return (file.getAbsolutePath() + "/" + System.currentTimeMillis() + file_exts[currentFormat]);
+    }
+    private void startRecording(){
+        recorder = new MediaRecorder();
+        recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        recorder.setOutputFormat(output_formats[currentFormat]);
+        recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        recorder.setOutputFile(getFilename());
+        recorder.setOnErrorListener(errorListener);
+        recorder.setOnInfoListener(infoListener);
+
+        try {
+            recorder.prepare();
+            recorder.start();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    private MediaRecorder.OnErrorListener errorListener = new        MediaRecorder.OnErrorListener() {
+        @Override
+        public void onError(MediaRecorder mr, int what, int extra) {
+            AppLog.logString("Error: " + what + ", " + extra);
+        }
+    };
+
+    private MediaRecorder.OnInfoListener infoListener = new MediaRecorder.OnInfoListener() {
+        @Override
+        public void onInfo(MediaRecorder mr, int what, int extra) {
+            AppLog.logString("Warning: " + what + ", " + extra);
+        }
+    };
+    private void stopRecording(){
+        if(null != recorder){
+            recorder.stop();
+            recorder.reset();
+            recorder.release();
+
+            recorder = null;
+        }
+    }
+
 
 
     @Override
@@ -118,11 +192,23 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+<<<<<<< HEAD
+=======
+
+
+        EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
+
+
+
+>>>>>>> 86b938338b119b9ec004142e072ca3579906f680
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+<<<<<<< HEAD
                     Toast.makeText(this,text.get(0),Toast.LENGTH_SHORT);
+=======
+>>>>>>> 86b938338b119b9ec004142e072ca3579906f680
                     arr[counter].setText(text.get(0));
 
                 }
@@ -130,11 +216,25 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
 
         }
+        if(arr[counter].getText().toString().contains(stp)==true)
+
+        {
+            Toast.makeText(this, "application band", Toast.LENGTH_SHORT).show();
+            stopRecording();
+        }
+        else{
 
         counter++;
-            if (counter < 5)
+            if (counter <7)
                 speakTheText(counter);
+        else if(counter == 7)
+            {
+                Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
 
+                stopRecording();
+            }
+
+    }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -146,7 +246,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     private void speakTheText(int count) {
-
 
 
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
@@ -162,7 +261,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
             try {
                 startActivityForResult(intent, RESULT_SPEECH);
-                ed1.setText("");
+
             } catch (ActivityNotFoundException e) {
                 Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
                 t.show();
@@ -187,4 +286,5 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
 }
+
 
