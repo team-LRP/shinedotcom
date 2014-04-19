@@ -106,7 +106,7 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Are you ?"
         android:id="@+id/areyou"
-        android:layout_below="@+id/workex"
+        android:layout_below="@+id/textView3"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -116,17 +116,85 @@
         android:text="Fresher"
         android:id="@+id/radioButton"
         android:checked="false"
-        android:layout_below="@+id/workex"
-        android:layout_alignRight="@+id/workex"
-        android:layout_alignEnd="@+id/workex" />
+        android:layout_alignEnd="@+id/workex"
+        android:layout_below="@+id/areyou"
+        android:layout_alignParentLeft="true" />
 
     <RadioButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Experienced"
         android:id="@+id/radioButton2"
+        android:checked="false"
+        android:layout_below="@+id/radioButton"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="No. of years ?"
+        android:id="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/radioButton2"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Experience Summary"
+        android:id="@+id/textView3"
         android:layout_below="@+id/workex"
-        android:layout_toRightOf="@+id/radioButton"
-        android:checked="false" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/years"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_alignRight="@+id/radioButton"
+        android:layout_alignEnd="@+id/radioButton" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Current Job Details"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Job Title"
+        android:id="@+id/textView5"
+        android:layout_below="@+id/textView4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Company Name"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
