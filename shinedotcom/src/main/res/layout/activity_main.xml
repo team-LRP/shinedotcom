@@ -165,7 +165,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/years"
+        android:id="@+id/edityears"
         android:layout_alignBottom="@+id/textView"
         android:layout_alignRight="@+id/radioButton"
         android:layout_alignEnd="@+id/radioButton" />
@@ -221,7 +221,7 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/editjobtitle"
         android:layout_alignTop="@+id/textView5"
         android:layout_alignLeft="@+id/editText"
         android:layout_alignStart="@+id/editText" />
@@ -229,10 +229,10 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
+        android:id="@+id/editcompany"
         android:layout_alignTop="@+id/textView6"
-        android:layout_alignLeft="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
+        android:layout_alignLeft="@+id/editjobtitle"
+        android:layout_alignStart="@+id/editjobtitle" />
 
 
 
