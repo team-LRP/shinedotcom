@@ -1,7 +1,10 @@
 package com.teamlrp.shinedotcom;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,10 +19,14 @@ import java.util.Locale;
 
 public class MainActivity extends Activity implements TextToSpeech.OnInitListener {
 
-<<<<<<< HEAD
-        EditText txt;
+        protected static final int RESULT_SPEECH = 1;
+
+
+
         Button buttonSpeak;
 
+        TextView txt, txt1 , txt2, txt3 ;
+        EditText ed1 , ed2 , ed3 ;
         TextToSpeech tts ;
 
         @Override
@@ -30,7 +37,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
             tts = new TextToSpeech(this, this);
 
-            txt =(EditText)findViewById(R.id.textView1);
             buttonSpeak =(Button)findViewById(R.id.button);
 
 
@@ -39,19 +45,23 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     speakTheText();
+                    if (tts.isSpeaking() == false) {
 
-=======
-    TextView txt, txt1 , txt2, txt3 ;
-    EditText ed1 , ed2 , ed3 ;
+                        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+                        try {
+                            startActivityForResult(intent, RESULT_SPEECH);
+                            txt.setText("");
+                        } catch (ActivityNotFoundException e) {
+                            Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
+                            t.show();
 
-    Button btn;
+                        }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
-        txt= (TextView)findViewById(R.id.textView);
+                    }
+                
+
         txt1= (TextView)findViewById(R.id.name);
         txt2= (TextView)findViewById(R.id.location);
         txt3= (TextView)findViewById(R.id.gender);
@@ -59,20 +69,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         ed2= (EditText)findViewById(R.id.editlocation);
         ed3= (EditText)findViewById(R.id.editgender);
 
-        btn = (Button)findViewById(R.id.button);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                try {
-                    startActivityForResult(intent, RESULT_SPEECH);
-                    txt.setText("");
-                }
-                catch (ActivityNotFoundException e) {
-                    Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
-                    t.show();
->>>>>>> FETCH_HEAD
                 }
             });
         }
@@ -118,14 +114,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
     }
 
-    private void speakTheText()
-    {
-        String textToSpeak = String textToSpeak = editText.getText().toString();
+    private void speakTheText() {
+        String textToSpeak = "Please enter your Name ";
         tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
     }
-
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
