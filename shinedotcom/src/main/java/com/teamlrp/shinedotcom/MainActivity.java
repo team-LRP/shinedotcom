@@ -31,6 +31,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     Button buttonSpeak;
+    String stp = "stop'\0' ";
 
 
     TextView txt1, txt2, txt3;
@@ -61,7 +62,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
+<<<<<<< HEAD
 
+=======
+>>>>>>> f4575aa199de36e8ddd78804e393b73953e42322
         ed2 = (EditText)findViewById(R.id.editcountry);
 
         ed3 = (EditText) findViewById(R.id.editcity);
@@ -206,11 +210,17 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+<<<<<<< HEAD
 
 
         EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
 
 
+=======
+
+        EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
+
+>>>>>>> f4575aa199de36e8ddd78804e393b73953e42322
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
@@ -222,11 +232,23 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
 
         }
+        if(arr[counter].getText().toString().contains(stp)==true)
+
+        {
+            Toast.makeText(this, "application band", Toast.LENGTH_SHORT).show();
+        }
+        else{
 
         counter++;
-            if (counter < 5)
+            if (counter <7)
                 speakTheText(counter);
+        else if(counter == 7)
+            {
+                Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
 
+            }
+
+    }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -238,7 +260,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     private void speakTheText(int count) {
-
 
 
         String[] textToSpeak = getResources().getStringArray(R.array.questions);

@@ -31,9 +31,15 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+<<<<<<< HEAD
 
 
       <Button
+=======
+
+
+    <Button
+>>>>>>> f4575aa199de36e8ddd78804e393b73953e42322
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
