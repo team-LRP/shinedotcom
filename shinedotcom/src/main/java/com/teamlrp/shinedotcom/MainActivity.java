@@ -37,7 +37,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         txt1 = (TextView) findViewById(R.id.name);
-        txt2 = (TextView) findViewById(R.id.location);
+        txt2 = (TextView) findViewById(R.id.country);
+        txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
         ed2 = (EditText) findViewById(R.id.editlocation);
@@ -53,6 +54,24 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 // TODO Auto-generated method stub
                 speakTheText();
 
+<<<<<<< HEAD
+=======
+                i = 0;
+                if (i == 0) {
+
+                    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+                    try {
+                        startActivityForResult(intent, RESULT_SPEECH);
+                        ed1.setText("");
+                    } catch (ActivityNotFoundException e) {
+                        Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
+                        t.show();
+
+                    }
+                }
+
+>>>>>>> FETCH_HEAD
 
             }
         });
@@ -112,12 +131,25 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
     private void speakTheText() {
+<<<<<<< HEAD
 
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
         for (int counter = 0; counter < 5; counter++) {
 
 
+=======
+        String[] textToSpeak = getResources().getStringArray(R.array.questions);
+        for (int counter = 0; counter < 5; counter++) {
+
+>>>>>>> FETCH_HEAD
 
             tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
 
@@ -135,13 +167,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             }
 
         }
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
     @Override
