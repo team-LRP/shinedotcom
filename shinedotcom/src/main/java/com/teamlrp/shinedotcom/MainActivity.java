@@ -122,12 +122,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-<<<<<<< HEAD
-                    
-=======
-                    Toast.makeText(this,text.get(0),Toast.LENGTH_SHORT);
                     arr[counter].setText(text.get(0));
->>>>>>> 850d908a4dcc57c970ede3853931fa1ca214fedb
+
                 }
                 break;
             }
@@ -165,7 +161,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
             try {
                 startActivityForResult(intent, RESULT_SPEECH);
-                ed1.setText("");
+                
             } catch (ActivityNotFoundException e) {
                 Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
                 t.show();
