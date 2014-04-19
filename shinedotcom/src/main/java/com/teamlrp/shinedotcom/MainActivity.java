@@ -31,6 +31,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
 
+
     Button buttonSpeak;
     Button b3;
     Button b4;
@@ -43,8 +44,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
     int counter=0;
+<<<<<<< HEAD
     int flag=0;
 
+=======
+    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6} ;
+>>>>>>> b02e881f71b1d8b373a98213edacbdfbef453423
 
 
 
@@ -191,16 +196,23 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+<<<<<<< HEAD
+=======
 
 
         EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
 
 
 
+>>>>>>> 86b938338b119b9ec004142e072ca3579906f680
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+<<<<<<< HEAD
+                    Toast.makeText(this,text.get(0),Toast.LENGTH_SHORT);
+=======
+>>>>>>> 86b938338b119b9ec004142e072ca3579906f680
                     arr[counter].setText(text.get(0));
 
                 }
