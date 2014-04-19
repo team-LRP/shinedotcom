@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 
@@ -28,51 +29,75 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         TextView txt, txt1 , txt2, txt3 ;
         EditText ed1 , ed2 , ed3 ;
         TextToSpeech tts ;
+    int i=0;
 
-        @Override
+
+    @Override
         protected void onCreate(Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
 
+
+            txt1= (TextView)findViewById(R.id.name);
+            txt2= (TextView)findViewById(R.id.location);
+            txt3= (TextView)findViewById(R.id.gender);
+            ed1= (EditText)findViewById(R.id.editname);
+            ed2= (EditText)findViewById(R.id.editlocation);
+            ed3= (EditText)findViewById(R.id.editgender);
+
             tts = new TextToSpeech(this, this);
 
             buttonSpeak =(Button)findViewById(R.id.button);
-
 
             buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
                 public void onClick(View v) {
                     // TODO Auto-generated method stub
                     speakTheText();
-                    if (tts.isSpeaking() == false) {
+                    while (tts.isSpeaking() == true){
+                        i=1;
+                    }
 
-                        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                        try {
-                            startActivityForResult(intent, RESULT_SPEECH);
-                            txt.setText("");
-                        } catch (ActivityNotFoundException e) {
-                            Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
-                            t.show();
 
+                        i=0;
+                        if(i==0) {
+
+                            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+                            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+                            try {
+                                startActivityForResult(intent, RESULT_SPEECH);
+                                ed1.setText("");
+                            } catch (ActivityNotFoundException e) {
+                                Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
+                                t.show();
+
+                            }
                         }
 
 
-                    }
-                
-
-        txt1= (TextView)findViewById(R.id.name);
-        txt2= (TextView)findViewById(R.id.location);
-        txt3= (TextView)findViewById(R.id.gender);
-        ed1= (EditText)findViewById(R.id.editname);
-        ed2= (EditText)findViewById(R.id.editlocation);
-        ed3= (EditText)findViewById(R.id.editgender);
 
                 }
             });
         }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case RESULT_SPEECH: {
+                if(resultCode == RESULT_OK ){
+                    ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                    ed1.setText(text.get(0));
+                }
+                break;
+
+
+            }
+        }
+
+    }
 
 
 
@@ -117,6 +142,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private void speakTheText() {
         String textToSpeak = "Please enter your Name ";
         tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
+
     }
 
     @Override
