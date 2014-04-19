@@ -31,12 +31,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     TextView txt1, txt2, txt3;
-    EditText ed1, ed2, ed3,ed4,ed5,ed6 ;
-    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6} ;
+    EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7 ;
     TextToSpeech tts;
     int i = 0;
     int counter=0;
-
 
 
     @Override
@@ -48,11 +46,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
-        ed2 = (EditText) findViewById(R.id.editlocation);
-        ed3 = (EditText) findViewById(R.id.editgender);
-        ed4 = (EditText) findViewById(R.id.edityears);
-        ed5 = (EditText) findViewById(R.id.editjobtitle);
-        ed6 = (EditText) findViewById(R.id.editcompany);
+        ed2 = (EditText)findViewById(R.id.editcountry);
+        ed3 = (EditText) findViewById(R.id.editcity);
+        ed4 = (EditText) findViewById(R.id.editgender);
+        ed5 = (EditText) findViewById(R.id.edityears);
+        ed6 = (EditText) findViewById(R.id.editjobtitle);
+        ed7 = (EditText) findViewById(R.id.editcompany);
 
         tts = new TextToSpeech(this, this);
 
@@ -61,6 +60,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
+
 
                 speakTheText(counter);
 
@@ -114,6 +114,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+        EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
+
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
@@ -156,7 +158,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
             try {
                 startActivityForResult(intent, RESULT_SPEECH);
-                ed1.setText("");
+
             } catch (ActivityNotFoundException e) {
                 Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
                 t.show();
