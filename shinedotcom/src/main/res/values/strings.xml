@@ -4,5 +4,13 @@
     <string name="app_name">shinedotcom</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string-array name="questions">
+        <item>Please Enter your name?</item>
+        <item>Enter your country?</item>
+        <item>Enter your city?</item>
+        <item>Enter Gender</item>
+        <item>Are you Experienced (Yes or No)?</item>
+
+    </string-array>
 
 </resources>

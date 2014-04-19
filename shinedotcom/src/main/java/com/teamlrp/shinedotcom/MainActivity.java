@@ -70,25 +70,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             public void onClick(View v) {
                 // TODO Auto-generated method stub
                 speakTheText();
-                while (tts.isSpeaking() == true) {
-                    i = 1;
-                }
 
-
-                i = 0;
-                if (i == 0) {
-
-                    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                    try {
-                        startActivityForResult(intent, RESULT_SPEECH);
-                        ed1.setText("");
-                    } catch (ActivityNotFoundException e) {
-                        Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
-                        t.show();
-
-                    }
-                }
 
 
             }
@@ -141,7 +123,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txt.setText(text.get(0));
+                    ed1.setText(text.get(0));
                 }
                 break;
             }
@@ -169,11 +151,27 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     private void speakTheText() {
-        String textToSpeak = "Please enter your Name ";
-        tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
+        String[] textToSpeak = getResources().getStringArray(R.array.questions);
+        for (int counter = 0; counter < 5; counter++) {
 
+
+            tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
+
+            while (tts.isSpeaking() == true) ;
+
+            Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+            intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
+            try {
+                startActivityForResult(intent, RESULT_SPEECH);
+                ed1.setText("");
+            } catch (ActivityNotFoundException e) {
+                Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
+                t.show();
+
+            }
+
+        }
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
