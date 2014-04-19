@@ -31,7 +31,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     TextView txt1, txt2, txt3;
-    EditText ed1, ed2, ed3,ed4,ed5,ed6;
+    EditText ed1, ed2, ed3,ed4,ed5,ed6 ;
+    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6} ;
     TextToSpeech tts;
     int i = 0;
     int counter=0;
@@ -117,7 +118,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
+                    arr[counter].setText(text.get(0));
                 }
                 break;
             }
