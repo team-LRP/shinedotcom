@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,29 +51,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         buttonSpeak.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                // TODO Auto-generated method stub
-                speakTheText();
 
-<<<<<<< HEAD
-=======
-                i = 0;
-                if (i == 0) {
 
-                    Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-                    intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
-                    try {
-                        startActivityForResult(intent, RESULT_SPEECH);
-                        ed1.setText("");
-                    } catch (ActivityNotFoundException e) {
-                        Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
-                        t.show();
 
-                    }
                 }
->>>>>>> FETCH_HEAD
 
 
-            }
+
         });
     }
 
@@ -91,7 +76,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Toast.makeText(this, "This Language is not supported", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(this, "Ready to Speak", Toast.LENGTH_LONG).show();
-                speakTheText();
+
             }
 
         } else {
@@ -125,38 +110,28 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 break;
             }
         }
-    }
 
 
+        }
+
+    private void speakTheText(int counter) {
 
 
-    private void speakTheText() {
-<<<<<<< HEAD
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
-        for (int counter = 0; counter < 5; counter++) {
-
-=======
-        String textToSpeak = "Please enter your Name ";
-        tts.speak(textToSpeak, TextToSpeech.QUEUE_FLUSH, null);
-    }
->>>>>>> FETCH_HEAD
 
             tts.speak(textToSpeak[counter], TextToSpeech.QUEUE_FLUSH, null);
 
-            while (tts.isSpeaking() == true) ;
-
+            while (tts.isSpeaking() == true);
             Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
             intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, "en-US");
             try {
                 startActivityForResult(intent, RESULT_SPEECH);
                 ed1.setText("");
             } catch (ActivityNotFoundException e) {
-                Toast t = Toast.makeText(getApplicationContext(), "Opps major fail", Toast.LENGTH_SHORT);
+                Toast t = Toast.makeText(getApplicationContext(), "Oops major fail", Toast.LENGTH_SHORT);
                 t.show();
-
             }
 
-        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
