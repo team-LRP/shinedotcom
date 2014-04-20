@@ -96,8 +96,7 @@
             android:id="@+id/radioButton"
             android:checked="false"
             android:layout_above="@+id/textView"
-            android:layout_alignLeft="@+id/edityears"
-            android:layout_alignStart="@+id/edityears" />
+            android:layout_alignLeft="@+id/edityears" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -176,7 +175,10 @@
             android:id="@+id/textView9"
             android:layout_below="@+id/textView8"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+
+
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -192,23 +194,21 @@
             android:layout_height="wrap_content"
             android:id="@+id/editText"
             android:layout_above="@+id/textView6"
-            android:layout_alignLeft="@+id/editname"/>
+            android:layout_alignRight="@+id/editname"/>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editjobtitle"
             android:layout_alignTop="@+id/textView5"
-            android:layout_alignLeft="@+id/editname"
-            android:layout_alignStart="@+id/editText" />
+            android:layout_alignRight="@+id/editname" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editcompany"
             android:layout_alignTop="@+id/textView6"
-            android:layout_alignLeft="@+id/editname"
-            android:layout_alignStart="@+id/editjobtitle" />
+            android:layout_alignRight="@+id/editname" />
 
         <EditText
             android:layout_width="wrap_content"
@@ -216,6 +216,7 @@
 
             android:id="@+id/editname"
             android:layout_above="@+id/country"
+            android:layout_alignRight="@+id/editname"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
         <EditText
@@ -223,36 +224,34 @@
             android:layout_height="wrap_content"
             android:id="@+id/editcountry"
             android:layout_above="@+id/city"
-            android:layout_alignLeft="@+id/editname"/>
+            android:layout_alignRight="@+id/editname"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editcity"
             android:layout_above="@+id/gender"
-            android:layout_alignLeft="@+id/editname"
+            android:layout_alignRight="@+id/editname"
             />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editgender"
             android:layout_below="@+id/country"
-            android:layout_alignLeft="@+id/editname" />
+            android:layout_alignRight="@+id/editname" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editcollege"
             android:layout_alignTop="@+id/textView7"
-            android:layout_alignLeft="@+id/editname"
-            android:layout_alignStart="@+id/editjobtitle" />
+            android:layout_alignRight="@+id/editname" />
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/editchoice"
             android:layout_alignTop="@+id/textView8"
-            android:layout_alignLeft="@+id/editname"
-            android:layout_alignStart="@+id/editjobtitle" />
+            android:layout_alignRight="@+id/editname" />
 
 
 

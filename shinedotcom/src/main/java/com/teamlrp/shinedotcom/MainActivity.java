@@ -57,9 +57,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         ed4 = (EditText) findViewById(R.id.editgender);
         ed5 = (EditText) findViewById(R.id.radioButton);
         ed6 = (EditText) findViewById(R.id.edityears);
-        ed7 = (EditText) findViewById(R.id.editjobtitle);
-        ed8 = (EditText) findViewById(R.id.editcompany);
-        ed9 = (EditText) findViewById(R.id.editText);
+        ed9= (EditText) findViewById(R.id.editjobtitle);
+        ed7 = (EditText) findViewById(R.id.editcompany);
+        ed8 = (EditText) findViewById(R.id.editText);
         ed10 = (EditText) findViewById(R.id.editcollege);
         ed11 = (EditText) findViewById(R.id.editchoice);
 
@@ -189,9 +189,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         }
         boolean b;
         try {
-            b = (text.get(0).contains("no") == true);
+            b = (text.get(0).contains("no") == true||text.get(0).contains("new")==true);
         } catch (Exception e ) {
             b = false;
+        }
+        if(counter==3 &&text.get(0).contains("mail")==true){
+            arr[counter].setText("male");
+
         }
         if (counter == 4 && b) {
 
@@ -209,9 +213,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 counter++;
 
-                if (counter < 10)
+                if (counter < 11)
                     speakTheText(counter);
-                else if (counter == 10) {
+                else if (counter == 11) {
                     Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
 
                     //stopRecording();
