@@ -25,7 +25,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
 
-
     Button buttonSpeak;
 
     String stp = "stop";
@@ -36,9 +35,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7, ed8, ed9;
 
     TextToSpeech tts;
-    int i = 0;
+
     int counter=0;
-    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8, ed9} ;
+
 
 
 
@@ -46,9 +45,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
 
 
 
@@ -85,6 +81,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
           
     });
     }
+
+
+
+
+
+
 /*
 
     private String getFilename(){
