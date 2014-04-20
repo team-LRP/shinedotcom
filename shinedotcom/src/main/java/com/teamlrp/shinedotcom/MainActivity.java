@@ -3,6 +3,17 @@ package com.teamlrp.shinedotcom;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+import android.media.MediaRecorder;
+<<<<<<< HEAD
+=======
+import android.os.AsyncTask;
+>>>>>>> FETCH_HEAD
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
+>>>>>>> FETCH_HEAD
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
@@ -40,7 +51,14 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
     int counter=0;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> FETCH_HEAD
     EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8} ;
 
 
@@ -48,22 +66,20 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 /*
 =======
 <<<<<<< HEAD
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
     int flag=0;
 
-=======
-    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6} ;
->>>>>>> b02e881f71b1d8b373a98213edacbdfbef453423
 
 
 
 >>>>>>> FETCH_HEAD
     private static final String AUDIO_RECORDER_FILE_EXT_3GP = ".3gp";
-    private static final String AUDIO_RECORDER_FILE_EXT_MP4 = ".mp4";
+    private static final String AUDIO_RECORDER_FILE_EXT_MP3 = ".mp3";
     private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
     private MediaRecorder recorder = null;
     private int currentFormat = 0;
     private int output_formats[] = { MediaRecorder.OutputFormat.MPEG_4,             MediaRecorder.OutputFormat.THREE_GPP };
-    private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP4, AUDIO_RECORDER_FILE_EXT_3GP };
+    private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP3, AUDIO_RECORDER_FILE_EXT_3GP };
 
 */
 
@@ -109,6 +125,10 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
           
     });
+<<<<<<< HEAD
+=======
+
+>>>>>>> FETCH_HEAD
     }
 /*
 
@@ -198,14 +218,32 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+<<<<<<< HEAD
+
+
+
+        EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
+=======
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
 
         EditText arr[] = {ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9};
         ArrayList<String> text = null;
 
+<<<<<<< HEAD
+
+
+        switch (requestCode) {
+            case RESULT_SPEECH: {
+                if (resultCode == RESULT_OK) {
+                    ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+                    Toast.makeText(this,text.get(0),Toast.LENGTH_SHORT);
+=======
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
 
                     arr[counter].setText(text.get(0));
 
@@ -293,8 +331,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> FETCH_HEAD
 }
 
 
