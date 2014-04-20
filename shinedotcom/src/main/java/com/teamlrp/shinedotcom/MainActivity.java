@@ -32,12 +32,16 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     TextView txt1, txt2, txt3;
-    EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7, ed8, ed9;
+    EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7, ed8, ed9, ed10, ed11;
 
     TextToSpeech tts;
 
     int counter=0;
+<<<<<<< HEAD
 
+=======
+    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8, ed9, ed10, ed11} ;
+>>>>>>> f5e46b559640424a1088d6387f9ef7338ac6d4f0
 
 
 
@@ -45,17 +49,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f5e46b559640424a1088d6387f9ef7338ac6d4f0
         txt1 = (TextView) findViewById(R.id.name);
         txt2 = (TextView) findViewById(R.id.country);
         txt2 = (TextView) findViewById(R.id.city);
         txt3 = (TextView) findViewById(R.id.gender);
         ed1 = (EditText) findViewById(R.id.editname);
-
         ed2 = (EditText)findViewById(R.id.editcountry);
-
         ed3 = (EditText) findViewById(R.id.editcity);
         ed4 = (EditText) findViewById(R.id.editgender);
         ed5 = (EditText) findViewById(R.id.radioButton);
@@ -63,6 +68,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         ed7 = (EditText) findViewById(R.id.editjobtitle);
         ed8 = (EditText) findViewById(R.id.editcompany);
         ed9 = (EditText) findViewById(R.id.editText);
+        ed10 = (EditText) findViewById(R.id.editcollege);
+        ed11 = (EditText) findViewById(R.id.editchoice);
 
         tts = new TextToSpeech(this, this);
 
@@ -176,7 +183,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         super.onActivityResult(requestCode, resultCode, data);
 
 
-        EditText arr[] = {ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9};
+        EditText arr[] = {ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9, ed10, ed11};
         ArrayList<String> text = null;
         switch (requestCode) {
             case RESULT_SPEECH: {
@@ -190,7 +197,13 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
             }
         }
-        if (counter == 4 && text.get(0).contains("no") == true) {
+        boolean b;
+        try {
+            b = (text.get(0).contains("no") == true);
+        } catch (Exception e ) {
+            b = false;
+        }
+        if (counter == 4 && b) {
 
             counter = counter + 3;
 
@@ -206,9 +219,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
                 counter++;
 
-                if (counter < 9)
+                if (counter < 10)
                     speakTheText(counter);
-                else if (counter == 9) {
+                else if (counter == 10) {
                     Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
 
                     //stopRecording();
