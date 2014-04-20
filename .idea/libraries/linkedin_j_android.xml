@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="linkedin-j-android">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/shinedotcom/libs/linkedin-j-android.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
