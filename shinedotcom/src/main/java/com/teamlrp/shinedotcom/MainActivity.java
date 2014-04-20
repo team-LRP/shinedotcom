@@ -57,9 +57,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         ed4 = (EditText) findViewById(R.id.editgender);
         ed5 = (EditText) findViewById(R.id.radioButton);
         ed6 = (EditText) findViewById(R.id.edityears);
-        ed9= (EditText) findViewById(R.id.editjobtitle);
-        ed7 = (EditText) findViewById(R.id.editcompany);
-        ed8 = (EditText) findViewById(R.id.editText);
+        ed8= (EditText) findViewById(R.id.editjobtitle);
+        ed9 = (EditText) findViewById(R.id.editcompany);
+        ed7 = (EditText) findViewById(R.id.editText);
         ed10 = (EditText) findViewById(R.id.editcollege);
         ed11 = (EditText) findViewById(R.id.editchoice);
 

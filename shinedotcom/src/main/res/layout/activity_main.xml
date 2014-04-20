@@ -92,11 +92,11 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+
             android:id="@+id/radioButton"
-            android:checked="false"
+
             android:layout_above="@+id/textView"
-            android:layout_alignLeft="@+id/edityears" />
+            android:layout_alignRight="@+id/edityears" />
 
         <TextView
             android:layout_width="wrap_content"
