@@ -2,13 +2,7 @@ package com.teamlrp.shinedotcom;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
-<<<<<<< HEAD
-=======
-import android.media.MediaRecorder;
-import android.os.AsyncTask;
->>>>>>> FETCH_HEAD
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
@@ -33,13 +27,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     Button buttonSpeak;
-<<<<<<< HEAD
-    String stp = "stop";
-=======
+
     Button b3;
     Button b4;
-    String stp = "stop'\0' ";
->>>>>>> FETCH_HEAD
+    String stp = "stop";
+
 
 
     TextView txt1, txt2, txt3;
@@ -48,7 +40,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
     int counter=0;
-<<<<<<< HEAD
+
     EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8} ;
 
 
@@ -80,8 +72,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        b3 = (Button) findViewById(R.id.button3);
-        b4 = (Button) findViewById(R.id.button4);
 
 
 
@@ -113,19 +103,12 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
             public void onClick(View v) {
 
-<<<<<<< HEAD
-
-              //  startRecording();
-=======
->>>>>>> FETCH_HEAD
                 speakTheText(counter);
              }
 
 
           
     });
-        ProgressTask progressTask = new ProgressTask(this);
-        progressTask.execute();
     }
 /*
 
@@ -231,51 +214,33 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
             }
         }
-
-<<<<<<< HEAD
-        if (counter == 4 && text.get(0).contains("no")==true) {
+        if (counter == 4 && text.get(0).contains("no") == true) {
 
             counter = counter + 3;
-=======
-        {
-            Toast.makeText(this, "application band", Toast.LENGTH_SHORT).show();
 
->>>>>>> FETCH_HEAD
-        }
-
-<<<<<<< HEAD
+            }
 
 
-                if (arr[counter].getText().toString().contains(stp) == true)
+            if (arr[counter].getText().toString().contains(stp) == true)
 
-                {
-                    Toast.makeText(this, "Voice Assistant Paused", Toast.LENGTH_SHORT).show();
+            {
+                Toast.makeText(this, "Voice Assistant Paused", Toast.LENGTH_SHORT).show();
+                //stopRecording();
+            } else {
+
+                counter++;
+
+                if (counter < 9)
+                    speakTheText(counter);
+                else if (counter == 9) {
+                    Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
+
                     //stopRecording();
                 }
-                else {
 
-                    counter++;
-
-                    if (counter < 9)
-                        speakTheText(counter);
-                    else if (counter == 9) {
-                        Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
-
-                        //stopRecording();
-                    }
-
-                }
-=======
-        counter++;
-            if (counter <7)
-                speakTheText(counter);
-        else if(counter == 7)
-            {
-                Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
-                flag=1;
-
->>>>>>> FETCH_HEAD
             }
+
+        }
 
 
 
@@ -328,46 +293,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     }
 
 
-
-    private class ProgressTask extends AsyncTask<String, Void, Boolean> {
-
-
-
-
-        // private List<Message> messages;
-        public ProgressTask(Activity activity) {
-
-            context = activity;
-
-        }
-
-        /** progress dialog to show user that the backup is processing. */
-
-        /** application context. */
-        private Context context;
-
-
-        protected void onPreExecute() {
-
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-
-            if(flag==1);
-            stopRecording();
-
-        }
-
-        protected Boolean doInBackground(final String... args) {
-
-            startRecording();
-
-            return null;
-
-        }
-
-    }
 
 
 }
