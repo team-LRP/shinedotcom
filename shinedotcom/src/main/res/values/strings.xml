@@ -16,6 +16,7 @@
         <item>Company Name?</item>
         <item>Enter Qualifications</item>
         <item>Enter College</item>
+        <item>Enter choice of Industry</item>
     </string-array>
 
     <string name="title_activity_main_activity2">MainActivity2</string>
