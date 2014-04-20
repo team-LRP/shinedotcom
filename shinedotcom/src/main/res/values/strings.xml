@@ -25,5 +25,6 @@
     <string name="LangDefault">language code</string>
     <string name="keyDefault">api key</string>
     <string name="title_activity_linked_in_profile">LinkedInProfile</string>
+    <string name="title_activity_main_activity3">MainActivity3</string>
 
 </resources>
