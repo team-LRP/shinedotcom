@@ -28,8 +28,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
     Button buttonSpeak;
 
-    Button b3;
-    Button b4;
     String stp = "stop";
 
 
@@ -40,29 +38,9 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
     int counter=0;
-    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8} ;
+    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8, ed9} ;
 
 
-    
-/*
-=======
-<<<<<<< HEAD
->>>>>>> c38ea17723243fa422ee67688d490d47720a4985
-    int flag=0;
-
-
-
-
->>>>>>> FETCH_HEAD
-    private static final String AUDIO_RECORDER_FILE_EXT_3GP = ".3gp";
-    private static final String AUDIO_RECORDER_FILE_EXT_MP3 = ".mp3";
-    private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
-    private MediaRecorder recorder = null;
-    private int currentFormat = 0;
-    private int output_formats[] = { MediaRecorder.OutputFormat.MPEG_4,             MediaRecorder.OutputFormat.THREE_GPP };
-    private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP3, AUDIO_RECORDER_FILE_EXT_3GP };
-
-*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

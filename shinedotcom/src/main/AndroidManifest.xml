@@ -30,7 +30,13 @@
         </activity>
     </application>
 
+<<<<<<< HEAD
 
+=======
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+    <uses-permission android:name="android.permission.CAPTURE_AUDIO_OUTPUT"></uses-permission>
+>>>>>>> 37ad449f239b72a77eb162b8669c23c594c1ad9b
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.INTERNET" />
