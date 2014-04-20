@@ -2,10 +2,8 @@ package com.teamlrp.shinedotcom;
 
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaRecorder;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.speech.RecognizerIntent;
@@ -44,22 +42,19 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
     int i = 0;
     int counter=0;
-<<<<<<< HEAD
+
     int flag=0;
 
-=======
-    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6} ;
->>>>>>> b02e881f71b1d8b373a98213edacbdfbef453423
 
 
 
     private static final String AUDIO_RECORDER_FILE_EXT_3GP = ".3gp";
-    private static final String AUDIO_RECORDER_FILE_EXT_MP4 = ".mp4";
+    private static final String AUDIO_RECORDER_FILE_EXT_MP3 = ".mp3";
     private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
     private MediaRecorder recorder = null;
     private int currentFormat = 0;
     private int output_formats[] = { MediaRecorder.OutputFormat.MPEG_4,             MediaRecorder.OutputFormat.THREE_GPP };
-    private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP4, AUDIO_RECORDER_FILE_EXT_3GP };
+    private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP3, AUDIO_RECORDER_FILE_EXT_3GP };
 
 
 
@@ -105,8 +100,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
           
     });
-        ProgressTask progressTask = new ProgressTask(this);
-        progressTask.execute();
+
     }
 
 
@@ -196,23 +190,21 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-<<<<<<< HEAD
-=======
+
 
 
         EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
 
 
 
->>>>>>> 86b938338b119b9ec004142e072ca3579906f680
+
         switch (requestCode) {
             case RESULT_SPEECH: {
                 if (resultCode == RESULT_OK) {
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-<<<<<<< HEAD
+
                     Toast.makeText(this,text.get(0),Toast.LENGTH_SHORT);
-=======
->>>>>>> 86b938338b119b9ec004142e072ca3579906f680
+
                     arr[counter].setText(text.get(0));
 
                 }
@@ -285,48 +277,6 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-
-    private class ProgressTask extends AsyncTask<String, Void, Boolean> {
-
-
-
-
-        // private List<Message> messages;
-        public ProgressTask(Activity activity) {
-
-            context = activity;
-
-        }
-
-        /** progress dialog to show user that the backup is processing. */
-
-        /** application context. */
-        private Context context;
-
-
-        protected void onPreExecute() {
-
-        }
-
-        @Override
-        protected void onPostExecute(final Boolean success) {
-
-            if(flag==1);
-            stopRecording();
-
-        }
-
-        protected Boolean doInBackground(final String... args) {
-
-            startRecording();
-
-            return null;
-
-        }
-
     }
 
 

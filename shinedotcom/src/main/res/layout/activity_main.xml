@@ -33,7 +33,7 @@
 
 
 
-      <Button
+    Button
 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -249,7 +249,7 @@
             android:layout_alignStart="@+id/button"
             android:layout_marginBottom="57dp" />
 
-        <Button
+        Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="start"
@@ -258,7 +258,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="128dp" />
 
-        <Button
+       Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="stop"
