@@ -4,14 +4,24 @@
     <string name="app_name">shinedotcom</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string-array name="questions">
 
+    <string-array name="questions">
         <item>Please Enter your name?</item>
         <item>Enter your country?</item>
         <item>Enter your city?</item>
         <item>Enter Gender</item>
         <item>Are you Experienced (Yes or No)?</item>
-
+        <item>No of years of experience?</item>
+        <item>Job Title</item>
+        <item>Company Name</item>
+        <item>Your Qualifications</item>
     </string-array>
+
+    <string name="title_activity_main_activity2">MainActivity2</string>
+    <string name="title_activity_ocr">OCR</string>
+    <string name="title_activity_ocr_main">ocr_main</string>
+    <string name="LangDefault">language code</string>
+    <string name="keyDefault">api key</string>
+    <string name="title_activity_linked_in_profile">LinkedInProfile</string>
 
 </resources>

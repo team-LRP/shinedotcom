@@ -1,0 +1,114 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/scrollView">
+
+    <RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.teamlrp.shinedotcom.ocr_main">
+    <Button android:layout_alignParentTop="true" android:layout_height="wrap_content" android:id="@+id/picImagebutton" android:layout_width="fill_parent" android:layout_alignParentLeft="true" android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:layout_marginTop="35dp" android:text="Select an image"></Button>
+
+    <Button android:layout_height="wrap_content" android:id="@+id/convert"
+        android:layout_centerHorizontal="true" android:layout_width="fill_parent" android:layout_marginLeft="10dp" android:layout_marginRight="10dp" android:layout_marginTop="45dp" android:text="Convert to text"
+        android:layout_below="@+id/imageName"></Button>
+    <TextView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/imageName" android:text="Selected:" android:textAppearance="?android:attr/textAppearanceMedium" android:layout_below="@+id/picImagebutton" android:layout_centerHorizontal="true" android:layout_marginLeft="20dp" android:layout_marginRight="10dp" android:layout_marginTop="20dp"></TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Name:"
+        android:id="@+id/name"
+        android:layout_below="@+id/convert"
+        android:layout_alignLeft="@+id/imageName"
+        android:layout_alignStart="@+id/imageName"
+        android:layout_marginTop="63dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editname"
+        android:layout_alignTop="@+id/name"
+        android:layout_alignRight="@+id/imageName"
+        android:layout_alignEnd="@+id/imageName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Country:"
+        android:id="@+id/country"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/convert"
+        android:layout_below="@+id/editname" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editcountry"
+        android:layout_below="@+id/editname"
+        android:layout_alignLeft="@+id/editname"
+        android:layout_alignStart="@+id/editname" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Gender:"
+        android:id="@+id/gender"
+        android:layout_below="@+id/editcountry"
+        android:layout_alignLeft="@+id/name"
+        android:layout_alignStart="@+id/name" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editgender"
+        android:layout_below="@+id/editcountry"
+        android:layout_alignLeft="@+id/editcountry"
+        android:layout_alignStart="@+id/editcountry" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Qualification:"
+        android:id="@+id/textView3"
+        android:layout_below="@+id/editgender"
+        android:layout_alignLeft="@+id/gender"
+        android:layout_alignStart="@+id/gender" />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editqual"
+        android:layout_below="@+id/editgender"
+        android:layout_alignLeft="@+id/editgender"
+        android:layout_alignStart="@+id/editcountry" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="College:"
+        android:id="@+id/college"
+        android:layout_below="@+id/editqual"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editcollege"
+        android:layout_below="@+id/editqual"
+        android:layout_alignLeft="@+id/editqual"
+        android:layout_alignStart="@+id/editqual" />
+
+
+</RelativeLayout>
+</ScrollView>
