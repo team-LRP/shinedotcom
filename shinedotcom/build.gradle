@@ -2,7 +2,7 @@ apply plugin: 'android'
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    buildToolsVersion '19.0.0'
 
     defaultConfig {
         minSdkVersion 14
@@ -20,4 +20,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile files('libs/httpmime-4.1.2.jar')
+    compile files('libs/signpost-core-1.2.1.1.jar')
+    compile files('libs/linkedin-j-android.jar')
+    compile files('libs/commons-codec-1.3.jar')
 }

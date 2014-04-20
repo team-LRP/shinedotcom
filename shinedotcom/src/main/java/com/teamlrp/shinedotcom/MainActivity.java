@@ -3,9 +3,15 @@ package com.teamlrp.shinedotcom;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+<<<<<<< HEAD
+=======
 import android.media.MediaRecorder;
+<<<<<<< HEAD
+=======
+import android.os.AsyncTask;
+>>>>>>> FETCH_HEAD
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
 import android.os.Bundle;
-import android.os.Environment;
 import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.view.Menu;
@@ -16,8 +22,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -31,23 +35,39 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
     Button buttonSpeak;
+<<<<<<< HEAD
+    String stp = "stop";
+=======
     Button b3;
     Button b4;
     String stp = "stop'\0' ";
+>>>>>>> FETCH_HEAD
 
 
     TextView txt1, txt2, txt3;
-    EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7 ;
+    EditText ed1, ed2, ed3,ed4,ed5,ed6, ed7, ed8, ed9;
 
     TextToSpeech tts;
     int i = 0;
     int counter=0;
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+    EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8} ;
+
+
+    
+/*
+=======
+<<<<<<< HEAD
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
     int flag=0;
 
 
 
 
+>>>>>>> FETCH_HEAD
     private static final String AUDIO_RECORDER_FILE_EXT_3GP = ".3gp";
     private static final String AUDIO_RECORDER_FILE_EXT_MP3 = ".mp3";
     private static final String AUDIO_RECORDER_FOLDER = "AudioRecorder";
@@ -56,7 +76,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     private int output_formats[] = { MediaRecorder.OutputFormat.MPEG_4,             MediaRecorder.OutputFormat.THREE_GPP };
     private String file_exts[] = { AUDIO_RECORDER_FILE_EXT_MP3, AUDIO_RECORDER_FILE_EXT_3GP };
 
-
+*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,9 +100,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
         ed3 = (EditText) findViewById(R.id.editcity);
         ed4 = (EditText) findViewById(R.id.editgender);
-        ed5 = (EditText) findViewById(R.id.edityears);
-        ed6 = (EditText) findViewById(R.id.editjobtitle);
-        ed7 = (EditText) findViewById(R.id.editcompany);
+        ed5 = (EditText) findViewById(R.id.radioButton);
+        ed6 = (EditText) findViewById(R.id.edityears);
+        ed7 = (EditText) findViewById(R.id.editjobtitle);
+        ed8 = (EditText) findViewById(R.id.editcompany);
+        ed9 = (EditText) findViewById(R.id.editText);
 
         tts = new TextToSpeech(this, this);
 
@@ -94,6 +116,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
             public void onClick(View v) {
 
+<<<<<<< HEAD
+
+              //  startRecording();
+=======
+>>>>>>> FETCH_HEAD
                 speakTheText(counter);
              }
 
@@ -102,7 +129,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     });
 
     }
-
+/*
 
     private String getFilename(){
         String filepath = Environment.getExternalStorageDirectory().getPath();
@@ -142,7 +169,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
         }
     }
 
-
+*/
 
     @Override
     public void onInit(int status) {
@@ -190,12 +217,18 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
+<<<<<<< HEAD
 
 
 
         EditText arr[] = {ed1,ed2, ed3,ed4,ed5,ed6, ed7};
+=======
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
 
+        EditText arr[] = {ed1, ed2, ed3, ed4, ed5, ed6, ed7, ed8, ed9};
+        ArrayList<String> text = null;
 
+<<<<<<< HEAD
 
 
         switch (requestCode) {
@@ -204,22 +237,55 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                     ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
                     Toast.makeText(this,text.get(0),Toast.LENGTH_SHORT);
+=======
+        switch (requestCode) {
+            case RESULT_SPEECH: {
+                if (resultCode == RESULT_OK) {
+                    text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+>>>>>>> c38ea17723243fa422ee67688d490d47720a4985
 
                     arr[counter].setText(text.get(0));
 
+
+                    break;
                 }
-                break;
             }
-
         }
-        if(arr[counter].getText().toString().contains(stp)==true)
 
+<<<<<<< HEAD
+        if (counter == 4 && text.get(0).contains("no")==true) {
+
+            counter = counter + 3;
+=======
         {
             Toast.makeText(this, "application band", Toast.LENGTH_SHORT).show();
 
+>>>>>>> FETCH_HEAD
         }
-        else{
 
+<<<<<<< HEAD
+
+
+                if (arr[counter].getText().toString().contains(stp) == true)
+
+                {
+                    Toast.makeText(this, "Voice Assistant Paused", Toast.LENGTH_SHORT).show();
+                    //stopRecording();
+                }
+                else {
+
+                    counter++;
+
+                    if (counter < 9)
+                        speakTheText(counter);
+                    else if (counter == 9) {
+                        Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
+
+                        //stopRecording();
+                    }
+
+                }
+=======
         counter++;
             if (counter <7)
                 speakTheText(counter);
@@ -228,10 +294,11 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 Toast.makeText(this, "Application process stopped", Toast.LENGTH_LONG).show();
                 flag=1;
 
+>>>>>>> FETCH_HEAD
             }
 
-    }
-    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -245,6 +312,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
 
 
         String[] textToSpeak = getResources().getStringArray(R.array.questions);
+
 
 
         tts.speak(textToSpeak[count], TextToSpeech.QUEUE_FLUSH, null);

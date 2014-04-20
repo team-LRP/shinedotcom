@@ -102,34 +102,25 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <RadioButton
+   <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Fresher"
+        android:text=""
         android:id="@+id/radioButton"
         android:checked="false"
-        android:layout_alignEnd="@+id/workex"
-        android:layout_below="@+id/areyou"
-        android:layout_alignParentLeft="true" />
+       android:layout_above="@+id/textView"
+       android:layout_alignLeft="@+id/edityears"
+       android:layout_alignStart="@+id/edityears" />
 
-    <RadioButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Experienced"
-        android:id="@+id/radioButton2"
-        android:checked="false"
-        android:layout_below="@+id/radioButton"
-        android:layout_alignParentLeft="true" />
-
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="No. of years ?"
         android:id="@+id/textView"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/radioButton2"
-        android:layout_alignParentLeft="true" />
+            android:layout_below="@+id/areyou"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -146,8 +137,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/edityears"
         android:layout_alignBottom="@+id/textView"
-        android:layout_alignRight="@+id/radioButton"
-        android:layout_alignEnd="@+id/radioButton" />
+        android:layout_alignRight="@+id/editText"
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -183,7 +174,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
+        android:text="Qualifications:"
         android:id="@+id/textView7"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
@@ -239,6 +230,8 @@
             android:layout_below="@+id/country"
             android:layout_toRightOf="@+id/textView2" />
 
+<<<<<<< HEAD
+=======
         Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -257,6 +250,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="128dp" />
+>>>>>>> FETCH_HEAD
 
        Button
             android:layout_width="wrap_content"
