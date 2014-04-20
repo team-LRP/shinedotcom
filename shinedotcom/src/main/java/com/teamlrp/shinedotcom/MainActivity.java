@@ -37,11 +37,8 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     TextToSpeech tts;
 
     int counter=0;
-<<<<<<< HEAD
-
-=======
     EditText arr[] = { ed1, ed2, ed3,ed4,ed5,ed6, ed8, ed9, ed10, ed11} ;
->>>>>>> f5e46b559640424a1088d6387f9ef7338ac6d4f0
+
 
 
 
@@ -49,12 +46,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> f5e46b559640424a1088d6387f9ef7338ac6d4f0
         txt1 = (TextView) findViewById(R.id.name);
         txt2 = (TextView) findViewById(R.id.country);
         txt2 = (TextView) findViewById(R.id.city);
@@ -157,9 +149,7 @@ public class MainActivity extends Activity implements TextToSpeech.OnInitListene
                 }
 
 
-                else {
-                    Toast.makeText(this, "Can Not Speak", Toast.LENGTH_LONG).show();
-                }
+
 
             }
 

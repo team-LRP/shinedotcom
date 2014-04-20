@@ -35,7 +35,7 @@ public class MainActivity2 extends Activity {
 
     Button selectimg ;
 
-    Button ocr, voiceassistant, linkedin;
+    Button ocr, voiceassistant, linkedin, sop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +43,7 @@ public class MainActivity2 extends Activity {
         ocr = (Button) findViewById(R.id.ocr);
         voiceassistant = (Button) findViewById(R.id.voiceassistant);
         linkedin = (Button) findViewById(R.id.linkedin);
+        sop=(Button) findViewById(R.id.sopbutton);
         ocr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +66,13 @@ public class MainActivity2 extends Activity {
             }
         });
 
+        sop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity3.class);
+                startActivity(intent);
+            }
+        });
 
         selectimg=(Button)findViewById(R.id.selectimage);
         img=(ImageView)findViewById(R.id.imageView);
