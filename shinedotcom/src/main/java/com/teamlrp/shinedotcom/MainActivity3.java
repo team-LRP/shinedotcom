@@ -1,9 +1,7 @@
 package com.teamlrp.shinedotcom;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.media.MediaRecorder;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
@@ -20,7 +18,7 @@ public class MainActivity3 extends Activity {
 
     Button buttonstart;
     Button buttonstop;
-    Button Preview ;
+
 
 
 
@@ -39,7 +37,6 @@ public class MainActivity3 extends Activity {
         buttonstart = (Button) findViewById(R.id.butstart);
         buttonstop = (Button) findViewById(R.id.butstop);
 
-        Preview = (Button) findViewById(R.id.review);
 
         buttonstart.setOnClickListener(new View.OnClickListener() {
 
@@ -59,17 +56,6 @@ public class MainActivity3 extends Activity {
         });
 
 
-        Preview.setOnClickListener(new View.OnClickListener() {
-
-            public void onClick(View v) {
-
-                Intent intent = new Intent();
-                intent.setAction(android.content.Intent.ACTION_VIEW);
-                File file = new File("/sdcard/test.mp3");
-                intent.setDataAndType(Uri.fromFile(file), "audio/*");
-                startActivity(intent);
-            }
-        });
 
     }
 
