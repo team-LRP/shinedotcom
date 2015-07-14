@@ -18,7 +18,7 @@ public class MainActivity3 extends Activity {
 
     Button buttonstart;
     Button buttonstop;
-    Button Preview ;
+
 
 
 
@@ -37,7 +37,10 @@ public class MainActivity3 extends Activity {
         buttonstart = (Button) findViewById(R.id.butstart);
         buttonstop = (Button) findViewById(R.id.butstop);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 
         buttonstart.setOnClickListener(new View.OnClickListener() {
 
@@ -57,6 +60,7 @@ public class MainActivity3 extends Activity {
         });
 
 
+<<<<<<< HEAD
         /*Preview.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
@@ -69,6 +73,9 @@ public class MainActivity3 extends Activity {
             }
         });
 */
+=======
+
+>>>>>>> origin/master
     }
 
 
